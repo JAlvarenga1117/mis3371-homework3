@@ -59,7 +59,7 @@ Today is: <span id="today">Loading...</span>
 <!-- Form -->
 <div id="main">
 
-<form action="thankyou.html" onsubmit="return checkPasswords()">
+<form action="thankyou.html"
 
 <table class="formTable">
 
@@ -81,7 +81,7 @@ oninput="validateFirstName()" onblur="validateFirstName()">
 
 <td align="right">MI</td>
 <td>
-<input type="text" name="middleInitial" maxlength="1"
+<input type="text" name="middleInitial" id="middleInitial" maxlength="1"
 pattern="[A-Za-z]{1}"
 title="Enter 1 letter only (optional)."
 oninput="validateMiddleInitial()" onblur="validateMiddleInitial()">
@@ -98,7 +98,7 @@ oninput="validateLastName()" onblur="validateLastName()">
 <br>
 <span id="lastNameError" class="errorMsg"></span>
 </td>
-<tr>
+</tr>  
     
 <!-- DOB and SSN -->
 <tr>
@@ -244,7 +244,7 @@ oninput="validateEmail()" onblur="validateEmail()">
 
 <td align="right">Phone</td>
 <td colspan="2">
-<input type="text" name="phone" id="phone" jplaceholder="713-555-1212"
+<input type="text" name="phone" id="phone" placeholder="713-555-1212"
 pattern="\d{3}-\d{3}-\d{4}"
 title="Enter phone number like 000-000-0000."
 oninput="validatePhone()" onblur="validatePhone()">
@@ -257,7 +257,7 @@ oninput="validatePhone()" onblur="validatePhone()">
 <tr>
 <td align="right" valign="top">Describe Symptoms</td>
 <td colspan="5">
-<textarea rows="3" cols="50"
+<textarea id="symptoms" rows="3" cols="50"
 placeholder="Brief description..."
 title="Optional. Describe your symptoms."></textarea>
 </td>
@@ -307,7 +307,7 @@ title="Optional. Describe your symptoms."></textarea>
 <tr>
 <td align="right">Health Level</td>
 <td colspan="5">
-<input type="range" id="healthScale" min="1" max="10" value="5" oninput="updateSlider()">
+<input type="range" id="healthScale" name="healthScale" min="1" max="10" value="5" oninput="updateSlider()">
 <span id="sliderValue">5</span>
 </td>
 </tr>
@@ -351,7 +351,9 @@ oninput="checkPasswordMatch()" onblur="checkPasswordMatch()">
 <td colspan="6" align="center">
 <input type="button" value="Review" onclick="reviewForm()">
 &nbsp;&nbsp;&nbsp;
-<input type="submit" value="Submit">
+<input type="button" value="Validate" onclick="validateAll()">
+&nbsp;&nbsp;&nbsp;
+<input type="submit" id="submitBtn" value="Submit" style="display:none;">
 &nbsp;&nbsp;&nbsp;
 <input type="reset" value="Start Over">
 </td>
